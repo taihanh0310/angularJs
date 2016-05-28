@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Providing Data</title>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="customerController.js"></script>
+</head>
+<body>
+	<div ng-app="myApp" ng-controller="customersController"> 
+
+	<ul>
+	  <li ng-repeat="x in names">
+	    {{ x.Name + ', ' + x.Country }}
+	  </li>
+	</ul>
+
+	</div>
+</body>
+</html>

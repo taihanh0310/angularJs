@@ -1,0 +1,58 @@
+<html>
+<head>
+	<title>04- controller</title>
+	<script type="text/javascript" src="angular.min.js"></script>
+	
+</head>
+<body>
+	<h1>Controller</h1>
+	<!--Dinh nghia module-->
+	<div ng-app="mainapp">
+		<!--scope controller-->
+		<div ng-controller="studentController">
+			<p>Enter first name: <input type="text" ng-model="student.firstname"/> </p>
+			<p>Enter lastname name: <input type="text" ng-model="student.lastname"/> </p>
+
+			You are entering: {{student.fullname()}}
+		</div>
+		<!--end scope controller-->
+
+		<!-- scope data controller -->
+		<div ng-controller="dataController">
+			 <p>
+                Own: {{data.fullname}} <br/>
+                Email: {{data.email}} <br/>
+                Cellphone number: {{data.phone}} <br/>
+                Object: {{data.topic}} <br/>
+                Website: {{data.website}}
+            </p>
+		</div>
+		<!-- end scope data controller -->
+	</div>
+	<!--Ed Dinh nghia module-->
+	<script type="text/javascript">
+		var mainapp = angular.module("mainapp", []);
+		mainapp.controller('studentController', function($scope){
+			$scope.student = {
+				firstname: "", 
+				lastname: "", 
+				fullname: function(){
+					var studentObject  ;
+					studentObject = $scope.student; 
+					return studentObject.firstname + " " + studentObject.lastname;
+				}
+			};
+		});
+
+		mainapp.controller('dataController', function($scope){
+			$scope.data = {
+				fullname : 'Nguyen Tai Hanh',
+                email : 'taihanh0310@gmail.com',
+                phone : '01676460626',
+                topic : 'test data',
+                website : "no had website .net"
+			};
+		});
+	</script>
+</body>
+</html>

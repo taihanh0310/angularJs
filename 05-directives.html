@@ -1,0 +1,41 @@
+<html>
+<head>
+	<title>Directives</title>
+	<script type="text/javascript" src="angular.min.js"></script>
+</head>
+<body>
+	<h1>Directive la thanh phan mo rong cua the html </h1>
+	<div ng-app="myapp">
+		<div ng-controller="dataController">
+			<h2>Nhap noi dung thong bao </h2>
+			<input type="text" ng-model="name" />
+			<hr>
+			<p>Noi dung ban nhap la: <span ng-bind="name"></span></p>
+		</div>
+		<br>
+		<fieldset>
+			<legend>Tu dinh nghia Directives</legend>
+			<div ng-controller="templateController">
+				<span tu-dinhnghiatemplate></span>
+			</div>
+		</fieldset>
+	</div>
+	<script type="text/javascript">
+		var myapp = angular.module('myapp', []);
+
+		myapp.controller('dataController', function($scope){
+			$scope.name = 'Chao mung den voi angular js';
+		});
+
+		//new controller
+		myapp.controller('templateController', function($scope){
+
+		})
+		.directive('tuDinhNghiaTemplate', function(){
+			return {
+				template: '<h1>Tu dinh nghssssssssssssssssssssia Directive</h1>'
+			};
+		});
+	</script>
+</body>
+</html>

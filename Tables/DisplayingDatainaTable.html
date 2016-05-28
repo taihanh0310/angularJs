@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Displaying Data in a Table</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="customerController.js"></script>
+</head>
+<body class="container">
+	<div ng-app="myApp" ng-controller="customersController" class="row">
+		<div class="col-sm-12">
+			<table class="table">
+				<tr ng-repeat="x in names">
+					<td> {{ x.Name }}</td>
+					<td> {{ x.Country }}</td>
+				</tr>
+			</table>
+			<hr/>
+			<h1 class="text-center">Display with order by Filter</h1>
+			<table class="table table-striped">
+				<tr ng-repeat="x in names | orderBy : 'Country'">
+					<td> {{ x.Name }}</td>
+					<td> {{ x.Country }}</td>
+				</tr>
+			</table>
+
+			<hr>
+			<h1 class="text-center">Display with uppercase Filter</h1>
+			<table class="table table-striped">
+				<tr ng-repeat="x in names | orderBy : 'Name'">
+					<td> {{ x.Name }}</td>
+					<td> {{ x.Country | uppercase }}</td>
+				</tr>
+			</table>
+			<hr>
+			<h1 class="text-center">Display the Table Index </h1>
+			<table class="table table-striped">
+				<tr ng-repeat="x in names | orderBy : 'Name'">
+					<td>{{ $index + 1 }}</td>
+					<td> {{ x.Name | uppercase}}</td>
+					<td> {{ x.Country | uppercase }}</td>
+				</tr>
+			</table>
+		</div> 
+	</div>
+</body>
+</html>

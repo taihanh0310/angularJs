@@ -1,0 +1,24 @@
+<html>
+	<title>ng-init - ng-repeat</title>
+	<body>
+		<h1>Hello word angular js</h1>
+		<!--tao noi khoi chay angular js-->
+		<div ng-app="" ng-init="countries=[{locale:'en-US',name:'United States'},
+                                    {locale:'en-GB',name:'United Kingdom'},
+                                    {locale:'en-FR',name:'France'}]">
+			<p>Please input your name: <input type="text" ng-model="name" /></p>
+			<p>Hello <span ng-bind="name"></span> !</p>
+			<hr>
+
+			<p>Your locale for you:</p>
+
+			<ol>
+				<li ng-repeat="item in countries">
+					{{ 'Countrys: ' + item.name }}
+				</li>
+			</ol>
+		</div>
+		<!--ket thuc tao noi khoi chay angular js-->
+		<script src="angular.min.js"></script>
+	</body>
+</html>

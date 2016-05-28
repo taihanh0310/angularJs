@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>angularjs filters</title>
+    <script src="angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="mainapp">
+        <div ng-controller="studentController">
+            <p>The name is  {{student.firstname|uppercase}} (upper case)</p>
+            <p>Enter first name: <input type="text" ng-model="student.firstname" /> </p>
+            <p>Enter lastname name: <input type="text" ng-model="student.lastname" /> </p>
+
+            You are entering: {{student.fullname()}}
+
+            <br />
+            <fieldset>
+                <legend>In ra chu viet thuong</legend>
+                <p></p>
+            </fieldset>
+        </div>
+    </div>
+    <script src="personalController.js"></script>
+</body>
+</html>

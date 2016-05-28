@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AngularJS has directives for binding application data to the attributes of HTML DOM elements.</title>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<script type="text/javascript" src="myController.js"></script>
+</head>
+<body>
+	<!--<div ng-app="">
+		<p>
+			<button ng-disabled="mySwitch">Click me</button>
+		</p>
+
+		<p>
+			<input type="checkbox" ng-model="mySwitch"/> Button
+		</p>
+
+		<hr/>
+	<h1>ng-show</h1>
+	<p ng-show="true">I am visible.</p>
+	<p ng-show="false">I am not visiable.</p>
+
+	</div>-->
+
+	<hr>
+	<div ng-app="myApp">
+		<div ng-controller="myController">
+			<button ng-click="count = count + 1">Click Me!</button>
+
+			<p>{{ count }}</p>
+		</div>
+
+		<div ng-controller="personController">
+			<button ng-click="toggle()">Toggle</button>
+
+			<!--tao mot div de an gia tri cua form-->
+			<div ng-hide="false">
+				
+			</div>
+			<!--ket thuc tao mot div de an gia tri cua form-->
+		</div>
+	</div>
+</body>
+</html>

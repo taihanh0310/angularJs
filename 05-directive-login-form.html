@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title>Directives - login -form</title>
+	<script type="text/javascript" src="angular.min.js"></script>
+</head>
+<body>
+	<h1>login form - temlate directive angular js </h1>
+
+	
+
+	<script type="text/javascript">
+		var myapp = angular.module("myapp", [])
+
+		myapp.controller('templateController', function($scope){
+			
+		})
+		myapp.directive ('myFormRegister', function(){
+			var html = '<table>';
+					html += '<tr>';
+						html += '<td>';
+							html += 'Ten dang nhap: ';
+						html += '</td>';
+						html += '<td>';	
+							html += '<input type="text" name="username"/>';
+						html += '</td>';
+					html += '</tr>';
+				html += '</table>';
+
+			return {
+				template: html
+			};
+		});
+	</script>
+	<div ng-app="myapp">
+		<div ng-controller="templateController">
+			<div my-fromregister></div>
+		</div>
+	</div>
+</body>
+</html>
