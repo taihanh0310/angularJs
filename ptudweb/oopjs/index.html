@@ -1,43 +1,122 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Be tap tinh</title>
-	<script type="text/javascript" src="beTapTinh.js"></script>
-</head>
-<body>
-<fieldset>
-	<legend>Be Tap Tinh</legend>
-	<form>
-		<table>
-			<tr>
-				<td>So thu nhat</td>
-				<td><input type="number" name="txtSoA" id="txtSoA" /></td>
-				<td>
-					<input type="radio" name="btnChoose" value="+" /> Cong
-					<input type="radio" name="btnChoose" value="-" /> Tru
-				</td>
-			</tr>
-			<tr>
-				<td>So thu hai</td>
-				<td><input type="number" name="txtSoB" id="txtSoB" /></td>
-				<td>
-					<input type="radio" name="btnChoose" value="x" /> Nhan
-					<input type="radio" name="btnChoose" value="/" /> Chia
-				</td>
-			</tr>
-			<tr>
-				<td>Ket qua</td>
-				<td><input type="number" name="txtKetQua" id="txtKetQua" /></td>
-				<td>
-					<input type="button" name="btnTinh" id="btnTinh" value="Tinh">
-				</td>
-			</tr>
-			<tr>
-				<td>Thong Bao</td>
-				<td colspan="2"></td>
-			</tr>
-		</table>
-	</form>
-</fieldset>
-</body>
+    <head>
+        <title>Be tap tinh</title>
+        <script type="text/javascript" src="beTapTinh.js"></script>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Be Tap Tinh</legend>
+            <form>
+                <table>
+                    <tr>
+                        <td>So thu nhat</td>
+                        <td><input type="number" name="txtSoA" id="txtSoA" /></td>
+                        <td>
+                            <input type="radio" name="btnChoose" value="+" id="rbtnCong"/> Cong
+                            <input type="radio" name="btnChoose" value="-" id="rbtnTru"/> Tru
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>So thu hai</td>
+                        <td><input type="number" name="txtSoB" id="txtSoB" /></td>
+                        <td>
+                            <input type="radio" name="btnChoose" value="x" id="rbtnNhan"/> Nhan
+                            <input type="radio" name="btnChoose" value="/" id="rbtnChia"/> Chia
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Ket qua</td>
+                        <td><label id="txtKetQua"></label></td>
+                        <td>
+                            <input type="button" name="btnTinh" id="btnTinh" value="Tinh">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Thong Bao</td>
+                        <td colspan="2"><label id="lbThongBao" style="color: red"></label></td>
+                    </tr>
+                </table>
+            </form>
+        </fieldset>
+        <script>
+            var message = "";
+            var soA = document.getElementById('txtSoA');
+            var soB = document.getElementById('txtSoB');
+            var rbtnCong = document.getElementById('rbtnCong');
+            var rbtnTru = document.getElementById('rbtnTru');
+            var rbtnNhan = document.getElementById('rbtnNhan');
+            var rbtnChia = document.getElementById('rbtnChia');
+            //var operator = document.getElementsByName('btnChoose').checked;
+            var ketQua = document.getElementById('txtKetQua');
+            var btnTinh = document.getElementById('btnTinh');
+            var lbThongBao = document.getElementById('lbThongBao');
+            
+            function tinh(soA, soB, operator) {
+                switch(operator) {
+                    case "+":
+                    {
+                        return (soA + soB);
+                        break;
+                    }
+                    case "-":
+                    {
+                        return (soA - soB);
+                        break;
+                    }
+                    case "x":
+                    {
+                        return (soA * soB);
+                        break;
+                    }
+                    case "/":
+                    {
+                        return (soA / soB);
+                        break;
+                    }
+                    default:
+                    {
+                        break;
+                    }
+                }
+            }
+
+            function checkIsNumber(argument) {
+                if(!isNaN(argument)) {
+                    return false;
+                }
+                return true;
+            }
+            
+            function validation(){
+                if(soA.value == ""){
+                    message = "So A khong duoc de trong!";
+                }
+                else if(soB.value == ""){
+                    message = "So B khong duoc de trong!";
+                }
+                else if(!checkIsNumber((soA.value))){
+                    message = "Vui long nhap du lieu la so";
+                }
+                return message;
+            }
+                        
+            function getOperator(){
+                var temp = "+";
+                return temp;
+            }
+
+            btnTinh.addEventListener('click', beTapTinh);
+            function beTapTinh() {
+                var result = validation();
+                var operator = getOperator();
+                if(result != null && result.length != 0){
+                    lbThongBao.innerHTML = result;
+                }
+                else{
+                    ketQua.innerHTML = tinh(parseInt(soA.value), parseInt(soB.value), operator).toString();
+                }
+            }
+        </script>
+    </body>
 </html>
