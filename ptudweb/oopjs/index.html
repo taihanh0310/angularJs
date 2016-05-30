@@ -13,7 +13,7 @@
                         <td>So thu nhat</td>
                         <td><input type="number" name="txtSoA" id="txtSoA" /></td>
                         <td>
-                            <input type="radio" name="btnChoose" value="+" id="rbtnCong"/> Cong
+                            <input type="radio" name="btnChoose" value="+" id="rbtnCong" checked="checked"/> Cong
                             <input type="radio" name="btnChoose" value="-" id="rbtnTru"/> Tru
                         </td>
                     </tr>
@@ -82,7 +82,7 @@
             }
 
             function checkIsNumber(argument) {
-                if(!isNaN(argument)) {
+                if(isNaN(argument)) {
                     return false;
                 }
                 return true;
@@ -97,12 +97,26 @@
                 }
                 else if(!checkIsNumber((soA.value))){
                     message = "Vui long nhap du lieu la so";
+                }else{
+                    message = "";
                 }
                 return message;
             }
                         
             function getOperator(){
                 var temp = "+";
+                if(rbtnCong.checked){
+                    temp = rbtnCong.value;
+                }
+                else if(rbtnTru.checked){
+                    temp = rbtnTru.value;
+                }
+                else if(rbtnNhan.checked){
+                    temp = rbtnNhan.value;
+                }
+                else{
+                    temp = rbtnChia.value;
+                }
                 return temp;
             }
 
@@ -114,6 +128,7 @@
                     lbThongBao.innerHTML = result;
                 }
                 else{
+                    lbThongBao.innerHTML = "";
                     ketQua.innerHTML = tinh(parseInt(soA.value), parseInt(soB.value), operator).toString();
                 }
             }
