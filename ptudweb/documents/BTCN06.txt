@@ -1,0 +1,4 @@
+﻿Làm lại bài bé tập tính bằng AngularJs. Thang điểm:
+
+Thực hiện đầy đủ chức năng: 8 điểm
+Ràng buộc dữ liệu bằng AngularJs: 2 điểm

@@ -1,0 +1,1 @@
+﻿Chỉnh lại ĐACK thay vì đọc dữ liêu từ file json sang đọc dữ liệu từ Firebase. Thang điểm: - Sử dụng AngularFire để đọc và hiển thị dữ liệu từ Firebase: 8 điểm. - Host các file để chạy được ĐAGK lên Firebase: 2 điểm.

@@ -1,0 +1,5 @@
+﻿Sử dụng một trong các kiểu authentication của Firebase để thực hiện chức năng trên ĐAGK:
+
+Chức năng đăng nhập: 3 điểm
+Chức năng đăng xuất: 2 điểm.
+Bắt buộc người dùng phải đăng nhập mới thấy được nội dung của bài ĐAGK: 5 điểm.
