@@ -11,7 +11,7 @@
                 <table>
                     <tr>
                         <td>So thu nhat</td>
-                        <td><input type="number" name="txtSoA" id="txtSoA" /></td>
+                        <td><input type="text" name="txtSoA" id="txtSoA" /></td>
                         <td>
                             <input type="radio" name="btnChoose" value="+" id="rbtnCong" checked="checked"/> Cong
                             <input type="radio" name="btnChoose" value="-" id="rbtnTru"/> Tru
@@ -19,7 +19,7 @@
                     </tr>
                     <tr>
                         <td>So thu hai</td>
-                        <td><input type="number" name="txtSoB" id="txtSoB" /></td>
+                        <td><input type="text" name="txtSoB" id="txtSoB" /></td>
                         <td>
                             <input type="radio" name="btnChoose" value="x" id="rbtnNhan"/> Nhan
                             <input type="radio" name="btnChoose" value="/" id="rbtnChia"/> Chia
@@ -95,7 +95,7 @@
                 else if(soB.value == ""){
                     message = "So B khong duoc de trong!";
                 }
-                else if(!checkIsNumber((soA.value))){
+                else if(!checkIsNumber(soA.value) || !checkIsNumber(soB.value)){
                     message = "Vui long nhap du lieu la so";
                 }else{
                     message = "";
